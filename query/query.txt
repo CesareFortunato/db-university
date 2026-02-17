@@ -73,7 +73,8 @@ ORDER BY total_enrolment ASC;
 
 SELECT `office_address` AS address, COUNT(*) AS total_addresses
 FROM `teachers`
-GROUP BY `office_address`;
+GROUP BY `office_address`
+ORDER BY total_addresses DESC;
 
 
 
