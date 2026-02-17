@@ -88,7 +88,9 @@ ORDER BY average_vote DESC;
 
 //Contare quanti corsi di laurea ci sono per ogni dipartimento
 
-SELECT `department_id`, COUNT(*) AS total_courses
-FROM `degrees`
-GROUP BY `department_id`;
+SELECT `department_id`, COUNT(*) AS total_courses, departments.name
+FROM `degrees` 
+JOIN `departments` ON `department_id` = departments.id
+GROUP BY `department_id`
+ORDER BY total_courses DESC;
 
