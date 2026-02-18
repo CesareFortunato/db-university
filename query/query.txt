@@ -35,7 +35,8 @@ WHERE `period` = "I semestre" AND `year` = "1"
 
 SELECT *
 FROM `exams`
-WHERE `hour` > "14:00:00" AND `date` = "2020-06-20";
+WHERE HOUR(`hour`) >= 14
+AND `date` = "2020-06-20";
 
 
 
@@ -43,19 +44,19 @@ WHERE `hour` > "14:00:00" AND `date` = "2020-06-20";
 
 SELECT *
 FROM `degrees`
-WHERE `name` LIKE '%magistrale%'
+WHERE `level` = "magistrale" 
 
 
 //Da quanti dipartimenti è composta l'università? (12)
 
-SELECT *
+SELECT COUNT(*) AS num_departments
 FROM `departments`
 
 
 
 //Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-SELECT *
+SELECT COUNT(*) AS no_phone_teachers
 FROM `teachers`
 WHERE `phone` IS NULL;
 
